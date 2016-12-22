@@ -1,0 +1,13 @@
+<h3>Sửa thông tin phòng học</h3>
+
+
+<form action="/admin/classrooms/edit/{{classroom.id}}" method="post">
+  <div class="form-group">
+    <label for="">Tên</label>
+    <input class="form-control" type="text" name="name" value="{{classroom.name}}">
+  </div>
+
+
+  <a href="/admin/classrooms">Quay lại</a>
+  <button type="submit">Lưu</button>
+</form>

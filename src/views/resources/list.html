@@ -1,0 +1,32 @@
+<h3>Thiết bị</h3>
+<p><a href="/admin/resources/new">Tạo mới</a></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Tên</th>
+      <th>Tổ</th>
+      <th>Ngày mua</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#resources}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{group}}</td>
+        <td>{{purchaseDate}}</td>
+        <td>
+          <a href="/admin/resources/edit/{{id}}">sửa</a>
+          <a href="/admin/resources/del/{{id}}" class="del">xoá</a >
+        </td>
+      </tr>
+    {{/resources}}
+  </tbody>
+</table>
+
+{{^resources}}
+<div class="alert alert-warning">
+  <p>Chưa có dữ liệu</p>
+</div>
+{{/resources}}

@@ -1,0 +1,24 @@
+<h1>Chọn thời gian</h1>
+<div class="row">
+  {{#days}}
+  <div class="col-md-2">
+    <div class="text-center">
+      <h3>{{name}}</h3>
+      {{startDate}}
+    </div>
+    <ul>
+      {{#slots}}
+      <li>
+        {{#isFree}}
+          <a href="/resources/{{resource.id}}/classrooms/{{classroom.id}}/slots/{{hash}}">{{name}}</a>
+        {{/isFree}}
+
+        {{^isFree}}
+          <span class="slot-is-busy">{{name}}</span>
+        {{/isFree}}
+      </li>
+      {{/slots}}
+    </ul>
+  </div>
+  {{/days}}
+</div>

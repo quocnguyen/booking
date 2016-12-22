@@ -1,0 +1,9 @@
+body {
+  font-family: Lucida Console, Monaco5, monospace;
+}
+
+.slot-is-busy {
+  margin-bottom: 17px;
+  text-decoration: line-through;
+  color: #bdc3c7;
+}

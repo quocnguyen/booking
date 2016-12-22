@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset=utf-8>
+<meta http-equiv=X-UA-Compatible content="IE=edge">
+<meta name=description content="">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Hệ thống quản lý trang thiết bị trường học</title>
+<meta name=msapplication-tap-highlight content=no>
+<link rel=manifest href=manifest.json>
+<meta name=mobile-web-app-capable content=yes>
+<meta name=application-name content="Hệ thống quản lý trang thiết bị trường học">
+<link rel=icon sizes=192x192 href=images/touch/chrome-touch-icon-192x192.png>
+<meta name=apple-mobile-web-app-capable content=yes>
+<meta name=apple-mobile-web-app-status-bar-style content=black>
+<meta name=apple-mobile-web-app-title content="Web Starter Kit">
+<link rel=apple-touch-icon href=images/touch/apple-touch-icon.png>
+<meta name=msapplication-TileImage content=images/touch/ms-touch-icon-144x144-precomposed.png>
+<meta name=msapplication-TileColor content=#2F3BA2>
+<meta name=theme-color content=#2F3BA2>
+<link rel=stylesheet href=https://code.getmdl.io/1.1.3/material.indigo-pink.min.css>
+<link rel=stylesheet href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel=stylesheet href=/css/main.css>
+
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+            <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+            <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+                <h3>Hệ thống quản lý trang thiết bị trường học</h3>
+            </div>
+            <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark"><a href=#overview class="mdl-layout__tab is-active">Trang chủ</a> <a href=#features class=mdl-layout__tab>Tính năng</a> <a href=#technology class=mdl-layout__tab>Công nghệ</a> <a href=#faq class=mdl-layout__tab>Hỏi & Đáp</a> <a href=/login class=mdl-layout__tab>login</a> <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id=add><i class=material-icons role=presentation>add</i> <span class=visuallyhidden>Add</span></button></div>
+        </header>
+        {{>content}}
+    </div>
+    <script src=https://code.getmdl.io/1.1.3/material.min.js></script>
+    <script src=/js/main.min.js></script>

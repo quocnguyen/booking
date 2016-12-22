@@ -1,0 +1,43 @@
+{
+  "name": "booking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava",
+    "start": "node index.js | pino",
+    "dev": "nodemon index.js | pino"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "co": "4.6.0",
+    "compression": "1.6.2",
+    "consolidate": "0.14.5",
+    "cuid": "1.3.8",
+    "dotenv": "2.0.0",
+    "emailjs": "1.0.8",
+    "express-session": "1.14.2",
+    "finalhandler": "0.5.1",
+    "jsonwebtoken": "7.2.1",
+    "level": "1.5.0",
+    "level-session-store": "2.0.1",
+    "level-sublevel": "6.6.1",
+    "moment": "2.17.1",
+    "mustache": "2.3.0",
+    "passport": "0.3.2",
+    "passport-local": "1.0.0",
+    "pino": "3.0.4",
+    "pwd": "1.1.0",
+    "require-dir": "0.3.1",
+    "router": "1.1.4",
+    "serve-static": "1.11.1",
+    "through2": "2.0.3",
+    "twix": "1.1.3"
+  },
+  "devDependencies": {
+    "ava": "0.17.0"
+  }
+}

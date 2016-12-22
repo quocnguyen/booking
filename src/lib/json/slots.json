@@ -1,0 +1,38 @@
+[
+  {
+    "name": "thu 2",
+    "startDate": "20 Tháng 12 2016",
+    "slots": [
+      {
+        "id": 1,
+        "name": "tiet 1",
+        "isFree": true,
+        "startDate": ""
+      },
+      {
+        "id": 2,
+        "name": "tiet 2",
+        "isFree": false,
+        "startDate": ""
+      }
+    ]
+  },
+   {
+    "name": "thu 3",
+    "startDate": "21 Tháng 12 2016",
+    "slots": [
+      {
+        "id": 3,
+        "name": "tiet 1",
+        "isFree": true,
+        "startDate": ""
+      },
+      {
+        "id": 4,
+        "name": "tiet 2",
+        "isFree": false,
+        "startDate": ""
+      }
+    ]
+  }
+]

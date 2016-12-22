@@ -1,0 +1,20 @@
+<h1>Chọn phòng học sẽ sử dụng thiết bị</h1>
+
+<div class="row">
+  {{#classrooms}}
+  <div class="col-xs-6 col-md-3">
+    <div class="thumbnail">
+      <a href="/resources/{{resource.id}}/classrooms/{{id}}">
+        <img src="/imgs/no.jpg" alt="">
+        <h3 class="text-center">{{name}}</h3>
+      </a>
+    </div>
+  </div>
+  {{/classrooms}}
+
+  {{^classrooms}}
+    <div class="alert alert-warning">
+      <p>Chưa có phòng học nào</p>
+    </div>
+  {{/classrooms}}
+</div>

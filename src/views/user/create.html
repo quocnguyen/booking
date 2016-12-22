@@ -1,0 +1,33 @@
+<p><strong>Thêm người dùng</strong></p>
+
+<p>
+  <a href="/admin/users">Quay lại</a>
+</p>
+
+<form action="/admin/users/new" method="post">
+  <div class="form-group">
+    <label for="">Tên truy cập</label>
+    <input type="text" name="username" value="{{current.username}}">
+  </div>
+
+  <div class="form-group">
+    <label for="">Mật khẩu</label>
+    <input type="password" name="password" value="{{current.password}}">
+  </div>
+
+  <div class="form-group">
+    <label for="">Email</label>
+    <input type="email" name="email" value="{{current.email}}">
+  </div>
+
+  <div class="form-group">
+    <label for="">Phân quyền</label>
+    <select name="role" id="">
+      <option value="-1">------ Chọn quyền hạn ------</option>
+      {{#roles}}
+      <option value="{{id}}">{{name}}</option>
+      {{/roles}}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Lưu</button>
+</form>

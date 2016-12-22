@@ -1,0 +1,38 @@
+<h3>Lịch sử</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#bookings}}
+      <tr>
+        <td>
+          <strong class="text-success">{{user.username}}</strong>
+           mượn
+          <strong>{{resource.name}}</strong> về
+          <strong>{{classroom.name}}</strong>
+          ngày
+          <strong>{{slot.startDate}}</strong>
+        </td>
+        <td>
+          <a class="del" href="/admin/bookings/del/{{id}}">xoá</a>
+        </td>
+      </tr>
+    {{/bookings}}
+  </tbody>
+</table>
+
+
+{{^bookings}}
+  <tr>
+    <td>
+      <div class="alert alert-warning">
+        <p>Chưa có dữ liệu</p>
+      </div>
+    </td>
+  </tr>
+{{/bookings}}

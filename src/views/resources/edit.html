@@ -1,0 +1,19 @@
+<h3>Sửa thông tin thiết bị</h3>
+
+<form action="/admin/resources/edit/{{resource.id}}" method="post">
+  <div class="form-group">
+    <label for="">Tên</label>
+    <input class="form-control" type="text" name="name" value="{{resource.name}}">
+  </div>
+  <div class="form-group">
+    <label for="">Tổ quản lý</label>
+    <select class="form-control" name="group">
+      <option value="-1">------ Chọn tổ ------</option>
+      {{#groups}}
+      <option value="{{id}}" {{isSelected}}>{{name}}</option>
+      {{/groups}}
+    </select>
+  </div>
+  <a href="/admin/resources">Quay lại</a>
+  <button class="btn btn-primary" type="submit">Lưu</button>
+</form>

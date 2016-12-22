@@ -1,0 +1,26 @@
+<h3>Người dùng</h3>
+<p><a href="/admin/users/new">Tạo mới</a></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Tên truy cập</th>
+      <th>Email</th>
+      <th>Quyền</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#users}}
+      <tr>
+        <td>{{username}}</td>
+        <td>{{email}}</td>
+        <td>{{role}}</td>
+        <td>
+          <a href="/admin/users/edit/{{id}}">sửa</a>
+          <a href="/admin/users/del/{{id}}" class="del">xoá</a >
+        </td>
+      </tr>
+    {{/users}}
+  </tbody>
+</table>

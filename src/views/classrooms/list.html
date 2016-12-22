@@ -1,0 +1,22 @@
+<h3>Phòng học</h3>
+<p><a href="/admin/classrooms/new">Tạo mới</a></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Phòng</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#classrooms}}
+      <tr>
+        <td>{{name}}</td>
+        <td>
+          <a href="/admin/classrooms/edit/{{id}}">sửa</a>
+          <a href="/admin/classrooms/del/{{id}}" class="del">xoá</a >
+        </td>
+      </tr>
+    {{/classrooms}}
+  </tbody>
+</table>

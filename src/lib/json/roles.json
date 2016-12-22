@@ -1,0 +1,10 @@
+[
+  {
+    "id": "admin",
+    "name": "Quyền hiệu trưởng"
+  },
+  {
+    "id": "member",
+    "name": "Quyền giáo viên"
+  }
+]
