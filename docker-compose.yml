@@ -1,0 +1,6 @@
+booking:
+  image: quocnguyen/booking
+  mem_limit: 60m
+  env_file: .env
+  volumes:
+    - ./db:/usr/src/app/db:rw
