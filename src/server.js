@@ -19,7 +19,12 @@ routes.use((err, req, res, next) => {
     return res.redirect(url)
   }
 
-  if (code === 404 || code === 500) {
+  // client err
+  if (code >= 400 && code < 500) {
+    return res.end(err.message)
+  }
+
+  if (code >= 500) {
     return res.end('Có lỗi xãy ra, xin hãy thử lại sau')
   }
 

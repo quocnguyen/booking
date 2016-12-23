@@ -16,7 +16,11 @@
           <strong>{{resource.name}}</strong> về
           <strong>{{classroom.name}}</strong>
           ngày
-          <strong>{{slot.startDate}}</strong>
+          <strong>
+            {{#formatDate}}
+              {{slot.startDate}}
+            {{/formatDate}}
+          </strong>
         </td>
         <td>
           <a class="del" href="/admin/bookings/del/{{id}}">xoá</a>

@@ -17,7 +17,13 @@ function list (req, res, next) {
     res
       .setLayout('backend.html')
       .render('bookings/list.html', {
-        bookings: bookings
+        bookings: bookings,
+        formatDate: function () {
+          return function (text, render) {
+            let date = render(text).trim()
+            return moment(date).format('LLLL')
+          }
+        }
       })
   })
   .catch(next)
@@ -29,18 +35,24 @@ function create (req, res, next) {
     try {
       slot = JSON.parse(Buffer(req.params.slotHash, 'base64').toString('utf-8'))
     } catch (err) {
-      throw new BetterError(400)
+      throw new BetterError(500)
     }
 
     if (!slot.startDate) {
-      throw new BetterError(400)
+      throw new BetterError(500)
+    }
+
+    let bookingId = yield model.bookingdb.findId(slot.startDate)
+    if (bookingId) {
+      throw new BetterError(400, 'Thời gian này đã có người mượn')
     }
 
     let booking = yield model.bookingdb.create({
       user: req.user,
       resource: req.resource,
       classroom: req.classroom,
-      slot: slot
+      slot: slot,
+      startDate: slot.startDate
     })
 
     let startDate = moment(slot.startDate).format('LLLL')
@@ -59,10 +71,7 @@ function create (req, res, next) {
         booking: booking
       })
   })
-  .catch(err => {
-    console.log(err)
-    next(err)
-  })
+  .catch(next)
 }
 
 function handleDelete (req, res, next) {

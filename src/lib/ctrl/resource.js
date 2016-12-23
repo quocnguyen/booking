@@ -27,7 +27,7 @@ function list (req, res, next) {
   .then(function (resources) {
     res.setLayout('backend.html')
       .render('resources/list.html', {
-        resources: resources
+        resources: resources,
       })
   })
   .catch(next)
@@ -114,18 +114,26 @@ function handleDelete (req, res, next) {
 }
 
 function listSlots (req, res, next) {
-  let today = moment()
-  let until = moment().add('5', 'days')
-  let range = moment.twix(today, until).toArray('days')
-  let slots = range.map(date => {
-    return {
-      name: date.format('dddd'),
-      startDate: date.format('LL'),
-      slots: generatedSlots(date)
-    }
-  })
-
   co(function * () {
+    let bookings = yield model.bookingdb.find()
+    let booked = bookings.map(booking => booking.startDate)
+
+    let today = moment()
+    let until = moment().add('5', 'days')
+    let range = moment.twix(today, until).toArray('days')
+    let slots = range.map(date => {
+      return {
+        name: date.format('dddd'),
+        startDate: date.format('LL'),
+        slots: generatedSlots(date).map(slot => {
+          if (booked.indexOf(slot.startDate) > -1) {
+            slot.isFree = false
+          }
+          return slot
+        })
+      }
+    })
+
     res
       .setLayout('frontend.html')
       .render('resources/list-slot.html', {

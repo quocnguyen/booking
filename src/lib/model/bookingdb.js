@@ -7,7 +7,7 @@ function Booking (db) {
   let state = {
     db: db.sublevel('booking'),
     indexdb: db.sublevel('booking.index'),
-    indexFields: []
+    indexFields: ['startDate']
   }
 
   CRUD.call(this, state)
