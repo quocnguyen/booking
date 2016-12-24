@@ -112,6 +112,13 @@ CRUD.prototype.delete = function (ids) {
       return i
     })
 
+    // remove indexdb
+    self.indexFields.forEach((field) => {
+      list.forEach(obj => {
+        ops.push({type: 'put', key: obj[field], value: obj.id, prefix: self.indexdb})
+      })
+    })
+
     // save
     list.forEach(i => ops.push({type: 'put', key: i.id, value: i}))
     return ops

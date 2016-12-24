@@ -136,7 +136,7 @@ User.prototype.delete = function (id) {
     let ops = []
     ops.push({type: 'del', key: user.id});
     ['username', 'phone', 'email'].forEach(i => {
-      if (user[i]) ops.push({type: 'del', key: user[i], prefix: self.index})
+      if (user[i]) ops.push({type: 'del', key: user[i], prefix: self.indexdb})
     })
 
     return Promise.resolve(ops)

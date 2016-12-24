@@ -64,7 +64,7 @@ app.post('/users/edit/:userId',
   ctrl.user.edit
 )
 
-app.get('/resources/del/:userId',
+app.get('/users/del/:userId',
   ctrl.user.handleDelete,
   ctrl.user.list
 )
