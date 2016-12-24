@@ -23,6 +23,14 @@ app.use(frontLayout)
 
 app.use((req, res, next) => {
   res.locals.user = req.user
+  if (req.user && req.user.role === 'admin') {
+    res.locals.isAdmin = true
+  }
+
+  if (req.user && req.user.role === 'member') {
+    res.locals.isMember = true
+  }
+
   next()
 })
 

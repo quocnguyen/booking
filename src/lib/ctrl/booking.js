@@ -1,5 +1,6 @@
 'use strict'
 
+const crypto = require('crypto')
 const co = require('co')
 const model = require('../model')
 const BetterError = require('../BetterError')
@@ -42,7 +43,10 @@ function create (req, res, next) {
       throw new BetterError(500)
     }
 
-    let bookingId = yield model.bookingdb.findId(slot.startDate)
+    let uniqueStr = slot.startDate + req.resource.id
+    let hash = crypto.createHash('md5').update(uniqueStr).digest('hex')
+
+    let bookingId = yield model.bookingdb.findId(hash)
     if (bookingId) {
       throw new BetterError(400, 'Thời gian này đã có người mượn')
     }
@@ -52,7 +56,7 @@ function create (req, res, next) {
       resource: req.resource,
       classroom: req.classroom,
       slot: slot,
-      startDate: slot.startDate
+      hash: hash
     })
 
     let startDate = moment(slot.startDate).format('LLLL')

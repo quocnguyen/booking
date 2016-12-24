@@ -28,7 +28,20 @@
                 <h3>Hệ thống quản lý trang thiết bị trường học</h3>
             </div>
             <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
-            <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark"><a href=#overview class="mdl-layout__tab is-active">Trang chủ</a> <a href=#features class=mdl-layout__tab>Tính năng</a> <a href=#technology class=mdl-layout__tab>Công nghệ</a> <a href=#faq class=mdl-layout__tab>Hỏi & Đáp</a> <a href=/login class=mdl-layout__tab>login</a> <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id=add><i class=material-icons role=presentation>add</i> <span class=visuallyhidden>Add</span></button></div>
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark"><a href=#overview class="mdl-layout__tab is-active">Trang chủ</a> <a href=#features class=mdl-layout__tab>Tính năng</a> <a href=#technology class=mdl-layout__tab>Công nghệ</a> <a href=#faq class=mdl-layout__tab>Hỏi & Đáp</a>
+            {{^user}}
+              <a href=/login class=mdl-layout__tab>login</a>
+            {{/user}}
+
+            {{#isMember}}
+              <a href=/login class=mdl-layout__tab>Mượn thiết bị</a>
+            {{/isMember}}
+
+            {{#isAdmin}}
+              <a href=/login class=mdl-layout__tab>Quản lý</a>
+            {{/isAdmin}}
+
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id=add><i class=material-icons role=presentation>add</i> <span class=visuallyhidden>Add</span></button></div>
         </header>
         {{>content}}
     </div>

@@ -1,5 +1,6 @@
 'use strict'
 
+const crypto = require('crypto')
 const BetterError = require('../BetterError')
 const model = require('../model')
 const co = require('co')
@@ -116,7 +117,7 @@ function handleDelete (req, res, next) {
 function listSlots (req, res, next) {
   co(function * () {
     let bookings = yield model.bookingdb.find()
-    let booked = bookings.map(booking => booking.startDate)
+    let booked = bookings.map(booking => booking.hash)
 
     let today = moment()
     let until = moment().add('5', 'days')
@@ -126,7 +127,10 @@ function listSlots (req, res, next) {
         name: date.format('dddd'),
         startDate: date.format('LL'),
         slots: generatedSlots(date).map(slot => {
-          if (booked.indexOf(slot.startDate) > -1) {
+          let uniqueStr = slot.startDate + req.resource.id
+          let hash = crypto.createHash('md5').update(uniqueStr).digest('hex')
+
+          if (booked.indexOf(hash) > -1) {
             slot.isFree = false
           }
           return slot

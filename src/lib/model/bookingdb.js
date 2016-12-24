@@ -7,7 +7,7 @@ function Booking (db) {
   let state = {
     db: db.sublevel('booking'),
     indexdb: db.sublevel('booking.index'),
-    indexFields: ['startDate']
+    indexFields: ['hash']
   }
 
   CRUD.call(this, state)
