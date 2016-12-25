@@ -19,6 +19,7 @@ exports.edit = edit
 exports.handleEdit = handleEdit
 exports.handleDelete = handleDelete
 exports.listSlots = listSlots
+exports.report = report
 
 // display all resources
 function list (req, res, next) {
@@ -164,4 +165,28 @@ function generatedSlots (date) {
     slot.hash = hash
     return slot
   })
+}
+
+function report (req, res, next) {
+  co(function * () {
+    let resources = yield model.resourcedb.find()
+    let bookings = yield model.bookingdb.find()
+    let resourceMap = bookings
+      .map(booking => booking.resource.id)
+      .reduce((acc, cur) => {
+        acc[cur] ? acc[cur]++ : acc[cur] = 1
+        return acc
+      }, {})
+
+    resources = resources.map(resource => {
+      resource.bookingCount = resourceMap[resource.id] || 0
+      return resource
+    })
+    res
+      .setLayout('backend.html')
+      .render('resources/report.html', {
+        resources: resources
+      })
+  })
+  .catch(next)
 }

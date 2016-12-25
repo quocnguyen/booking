@@ -1,0 +1,34 @@
+<h3>Thống kê</h3>
+
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">Năm</a></li>
+  <li role="presentation"><a href="#">Tháng (đang xây dựng)</a></li>
+  <li role="presentation"><a href="#">Tuần (đang xây dựng)</a></li>
+</ul>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Thiết bị</th>
+      <th>Số lần mượn</th>
+      <th>Bởi</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#resources}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{bookingCount}}</td>
+        <td>
+          {{user.username}}
+        </td>
+      </tr>
+    {{/resources}}
+  </tbody>
+</table>
+
+{{^resources}}
+  <div class="alert alert-warning">
+    <p>Chưa có dữ liệu</p>
+  </div>
+{{/resources}}

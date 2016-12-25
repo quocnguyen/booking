@@ -71,3 +71,5 @@ app.get('/users/del/:userId',
 
 app.get('/bookings', ctrl.booking.list)
 app.get('/bookings/del/:bookingId', ctrl.booking.handleDelete)
+
+app.get('/reports', ctrl.resource.report)

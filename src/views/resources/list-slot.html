@@ -10,7 +10,7 @@
       {{#slots}}
       <li>
         {{#isFree}}
-          <a href="/resources/{{resource.id}}/classrooms/{{classroom.id}}/slots/{{hash}}">{{name}}</a>
+          <a href="/resources/{{resource.id}}/classrooms/{{classroom.id}}/slots/{{hash}}" onclick="return confirm('Bạn chắc chứ ?')">{{name}}</a>
         {{/isFree}}
 
         {{^isFree}}
